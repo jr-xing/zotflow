@@ -1,5 +1,7 @@
 # ZotFlow — Keep Your Research in Flow
 
+> **Development fork:** [jr-xing/zotflow](https://github.com/jr-xing/zotflow), based on [duanxianpi/zotflow](https://github.com/duanxianpi/zotflow). Includes the Obsidian 1.14.1 reader startup fix. See [fork development instructions](FORK-DEVELOPMENT.md) for building and adding features.
+
 English | [简体中文](README.zh-CN.md)
 
 > **Your Zotero library, your reader, your notes — one seamless workspace inside Obsidian.**
