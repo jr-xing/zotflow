@@ -2,6 +2,7 @@ import { gunzipSync } from "fflate";
 import {
     patchDocumentWorkerScript,
     patchPDFJSViewerHTML,
+    patchReaderHTML,
 } from "./patch-inlined-assets";
 import resourceContext, { resourceKeys } from "virtual:reader-resources";
 
@@ -89,7 +90,13 @@ function initializeBlobUrls(
         try {
             const resourceStarted = performance.now();
             // Wait for unzipping
-            const decompressedData = ungzipDataSync(gzippedBase64, timing);
+            const rawData = ungzipDataSync(gzippedBase64, timing);
+            const decompressedData =
+                fileName === "reader.html"
+                    ? new TextEncoder().encode(
+                          patchReaderHTML(new TextDecoder().decode(rawData)),
+                      )
+                    : rawData;
 
             // Store in Binary Map (for patcher)
             BLOB_BINARY_MAP[fileName] = { type, data: decompressedData };

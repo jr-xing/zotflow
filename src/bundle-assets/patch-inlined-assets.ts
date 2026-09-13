@@ -1,3 +1,22 @@
+/**
+ * The reader already bundles its own MathJax 3 renderer. Its old bootstrap also
+ * imports Obsidian's MathJax 3 script, which Obsidian 1.14.1 replaced with MathJax
+ * 4. That leaves a partial global MathJax object and makes the bundled renderer
+ * throw before the reader can connect. Remove only this obsolete host setup.
+ * Keep this compatibility patch here so the upstream reader stays unmodified.
+ */
+export function patchReaderHTML(html: string): string {
+    return html
+        .replace(
+            /\/\/ Set up MathJax\s+window\.MathJax = \{\s+chtml: \{[\s\S]*?\n\s*\};/,
+            "// Math rendering uses the reader's bundled MathJax.",
+        )
+        .replace(
+            /<script\s+src=["']\/lib\/mathjax\/tex-chtml-full\.js["']\s*><\/script>/,
+            "",
+        );
+}
+
 // Prepended when creating the Document Worker Blob, before upstream code runs.
 // Older iPad WebViews lack these APIs. The Reader iframe's polyfills cannot reach
 // this separate worker global, including SDT modules loaded into it later.
