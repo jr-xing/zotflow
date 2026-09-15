@@ -109,4 +109,10 @@ git submodule update --init --recursive
 npm ci
 ```
 
-Rebuild and test before pushing `master`. Do not reset the branch to upstream, because that would discard this fork's commits. No fork-specific release has been published; create and version releases when ready to distribute a build.
+Rebuild and test before pushing `master`. Do not reset the branch to upstream, because that would discard this fork's commits.
+
+## Releases and BRAT installation
+
+Fork releases start at `1.6.6`. In BRAT, add `jr-xing/zotflow` to install this fork with the MathJax compatibility fix. Obsidian 1.13.4 or newer is required.
+
+For future releases, bump the version with `npm version <version> --no-git-tag-version`, commit the updated package and manifest files, and push a tag matching the version exactly (no `v` prefix). The Release workflow builds the plugin and creates a draft with `main.js`, `manifest.json`, and `styles.css`. Check those assets and publish the draft so BRAT can install it.

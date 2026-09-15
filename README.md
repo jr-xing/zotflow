@@ -120,13 +120,15 @@ Legacy Markdown docs are still available in [docs/](docs/README.md), but the web
 
 Direct link: [https://community.obsidian.md/plugins/zotflow](https://community.obsidian.md/plugins/zotflow)
 
-### Option 2 — Beta builds via BRAT
+### Option 2 — Install this fork via BRAT
 
-For pre-release builds, install via [BRAT](https://github.com/TfTHacker/obsidian42-brat):
+For this fork's MathJax compatibility fix, install via [BRAT](https://github.com/TfTHacker/obsidian42-brat) (Obsidian 1.13.4 or newer):
 
 1. Install and enable **BRAT** from Community Plugins.
-2. In BRAT's options, click **Add Beta plugin** and enter: `duanxianpi/obsidian-zotflow`
+2. In BRAT's options, click **Add Beta plugin** and enter: `jr-xing/zotflow`
 3. Enable **ZotFlow** in Community Plugins.
+
+Releases are available on [this fork's releases page](https://github.com/jr-xing/zotflow/releases). The plugin ID remains `zotflow`, so this fork uses the existing ZotFlow installation and settings.
 
 See the docs website for step-by-step setup: [https://zotflow.peterduan.dev/](https://zotflow.peterduan.dev/)
 
